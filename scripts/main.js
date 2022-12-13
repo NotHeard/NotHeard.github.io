@@ -57,7 +57,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '57b0f934888642a1be294898d2ba21e7';
-const redirectUri = 'http://localhost:5555/';
+const redirectUri = 'https://NotHeard.github.io';
 //If using the embed player, we don't need anything from the user's account, just enough auth to view public playlists
 let scopes = []; 
 //If we're using the WebPlaybackSDK, then this makes more sense
