@@ -1,0 +1,407 @@
+/** 
+background grey = 
+higher grey = #2d2d2d
+
+light gray = #9f9f9f
+**/
+
+:root{
+    --backgroundGray: #121212;
+    /*--cardGray: #2d2d2d;
+    --cardLightGray: #373737;
+    --lightGray: #9f9f9f;
+    --lightGray: #9f9f9f;*/
+    --cardGray: rgba(255,255,255,0.14);
+    --cardLightGray: rgba(255,255,255,0.16);
+    --lightGray: rgba(255,255,255,0.30);
+    --white: rgba(255, 255, 255, 0.9);
+    --lightGrayOpaque: #656565;
+    --borderHeight: 2px;
+    --border: var(--borderHeight) solid var(--white);
+
+    --accentColor: #03a9f4;
+
+    --greenAccentColor: green;
+
+    --incorrectGuessColor: #f44336;
+    --correctArtistGuessColor: #ff9800;
+    --skippedGuessColor: #aeaeae;
+
+    --incorrectGuessDotColor: var(--incorrectGuessColor);
+    --correctArtistGuessDotColor: var(--correctArtistGuessColor);
+    --skippedGuessDotColor: var(--lightGrayOpaque);
+}
+
+body{
+    background-color: var(--backgroundGray);
+    color: var(--white);
+    font-family: sans-serif;
+}
+
+#sillylittleguy{
+    position: relative;
+    left: 0%;
+    font-family: sans-serif;
+    font-size: 5rem;
+    text-align: center;
+}
+
+#welcomeSection{
+    position: fixed;
+    border: var(--border);
+    top: 100px;
+    width: 100%;
+    max-width: 640px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#welcomeSection > p{
+    font-size: 1rem;
+}
+
+#loginButton{
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: var(--greenAccentColor);
+    border: var(--border);
+}
+
+.row{
+    display:flex;
+    justify-content: center;
+    border: var(--border);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+#spotifyPlaylistURL{
+    font-size: 1.5rem;
+    margin: 0.3rem;
+    margin-right: 0.1rem;
+}
+
+#playlistInputBox{
+    background-color: var(--cardLightGray);
+    color: var(--white);
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.5rem;
+    cursor: not-allowed;
+}
+
+#playlistInputBox:focus{
+    outline-width: 0;
+}
+
+#solution{
+    position: fixed;
+    top: 200px;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#guessDotsRow{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.guessDot{
+    height: 30px;
+    width: 30px;
+    background-color: var(--backgroundGray);
+    margin-left: 20px;
+    border: var(--border);
+}
+
+.button{
+    font-family: sans-serif;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.startInactive{
+    opacity: 0;
+}
+
+.showAfterLogin{
+    opacity: 0;
+}
+
+.hideAfterPlaylistSelect{
+    opacity: 1;
+}
+
+.showWhenCorrect{
+    opacity: 0;
+}
+
+.topBar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.title{
+    font-size: 32px;
+}
+
+.guessesContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guess{
+    height: 38px;
+    padding: 8px;
+    border: var(--border);
+    font-size: 1.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.span{
+    font-weight: bold;
+}
+
+.incorrectGuess{
+    color: var(--incorrectGuessColor);
+}
+
+.correctArtistGuess{
+    color: var(--correctArtistGuessColor);
+}
+
+.skippedGuess{
+    color: var(--skippedGuessColor);
+}
+
+.bottomBar{
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    max-width: 720px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#progressBarContainer{
+    width: 100%;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border: var(--border);
+}
+
+.progressDivider{
+    position: absolute;
+    top: 0;
+    height: 20px;
+    margin-top: var(--borderHeight);
+    border-right: var(--border);
+    overflow: hidden;
+}
+
+#progressDivider1{
+    width: 6.25%;
+    z-index: 6;
+    background-color: var(--lightGrayOpaque);
+}
+#progressDivider2{
+    z-index: 5;
+    width: 12.5%;
+}
+#progressDivider3{
+    z-index: 4;
+    width: 25%;
+}
+#progressDivider4{
+    z-index: 3;
+    width: 43.75%;
+}
+#progressDivider5{
+    z-index: 2;
+    width: 68.75%;
+}
+#progressDivider6{
+    z-index: 1;
+    width: 100%;
+}
+
+#progressBar{
+    z-index: 7;
+    position: absolute;
+    top: 1;
+    background-color: var(--accentColor);
+    width: 0%;
+    height: 20px;
+}
+
+#bbSecondRow{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.timeLeft, .timeRight{
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+.playpausebutton{
+    width:100%;
+    height:64px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.imageButton{
+    width: 64px;
+    height: 64px;
+}
+
+#bbSpacerForInputBox{
+    height:56px;
+    margin-bottom: 20px;
+}
+
+#guessInputBox{
+    background-color: var(--backgroundGray);
+    border: var(--border);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0; 
+    right: 0;
+    bottom: 46px;
+    /* 46  
+        (height of bbThirdRow)
+    */
+    min-height: 54px;
+    max-height: 554px;
+    height:fit-content;
+    width: 95%;
+    padding: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+#guessArea{
+    min-height: 0px;
+    max-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: var(--cardGray);
+}
+
+#guessInputBox:focus-within{
+    border-color: var(--accentColor);
+}
+
+.autocompleteResult{
+    min-height: 2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 1.5rem;
+}
+
+#guessInputBottomRow{
+    height: 54px;
+    display: flex;
+    border-top: 1px solid var(--lightGray);
+    background-color: var(--cardGray);
+}
+
+#searchIcon{
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 12px;
+}
+
+#searchBox{
+    flex-grow: 1;
+    border: none;
+    background-color: #FFFFFF00;
+    color: var(--white);
+    height: 95%;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 1.5rem;
+}
+
+#searchBox:focus{
+    outline-width: 0;
+}
+
+/* Placeholder text color */
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--white);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--white);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--white);
+}
+
+#bbThirdRow{
+    width: 95%;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    height: 46px;
+}
+
+.bottomButton{
+    background-color: var(--cardGray);
+    font-size: 1.5rem;
+    width: 50%;
+    text-align: center;
+    border: var(--border);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}

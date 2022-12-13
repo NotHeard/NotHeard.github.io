@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NotHeard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="topBar">
+      <h1 class="title">NotHeard</h1>
+    </div>
+    <div class="guessesContainer startInactive hideWhenCorrect">
+        <div id="guess1" class="guess"></div>
+        <div id="guess2" class="guess"></div>
+        <div id="guess3" class="guess"></div>
+        <div id="guess4" class="guess"></div>
+        <div id="guess5" class="guess"></div>
+        <div id="guess6" class="guess"></div>
+    </div>
+    <div id="sillylittleguy">
+      <div class="button"></div>
+    </div>
+    <div id="solution" class="showWhenCorrect">
+      <h1 id="solutionTitle" class="title">nt Go Next</h1>
+      <div id="guessDotsRow">
+        <div id="guessDot1" class="guessDot"></div>
+        <div id="guessDot2" class="guessDot"></div>
+        <div id="guessDot3" class="guessDot"></div>
+        <div id="guessDot4" class="guessDot"></div>
+        <div id="guessDot5" class="guessDot"></div>
+        <div id="guessDot6" class="guessDot"></div>
+      </div>
+    </div>
+    <div id="welcomeSection" class="hideAfterPlaylistSelect">
+      <h2 id="welcomeBanner">Welcome to NotHeard Generator!</h2>
+      <p>This site generates a "Heardle" like game from the songs of a playlist of your choice</p>
+      <p>A Spotify Premium account is required for this site to work</p>
+      <p>In order for this site to download contents of the playlist we need an auth token from Spotify</p>
+      <div id="loginButton">LOGIN WITH SPOTIFY</div>
+      <h3>PLEASE NOTE THIS SITE IS NOT RUN BY, ENDORSED OR ASSOCIATED WITH SPOTIFY IN ANYWAY</h3>
+      <p>4SPnDFD7k21pGE1Xy2IMph</p>
+      <p>https://open.spotify.com/playlist/4SPnDFD7k21pGE1Xy2IMph</p>
+      <div class="row" id="playlistURLRow">
+        <p id="spotifyPlaylistURL">https://open.spotify.com/playlist/</p>
+        <input type="text" id="playlistInputBox" placeholder="you must login first" disabled>
+      </div>
+      <div id="gobutton" class="button">START</div>
+    </div>
+    <div class="bottomBar startInactive hideWhenCorrect">
+        <div id="progressBarContainer">
+            <div id="progressDivider1" class="progressDivider"></div>
+            <div id="progressDivider2" class="progressDivider"></div>
+            <div id="progressDivider3" class="progressDivider"></div>
+            <div id="progressDivider4" class="progressDivider"></div>
+            <div id="progressDivider5" class="progressDivider"></div>
+            <div id="progressDivider6" class="progressDivider"></div>
+            <div id="progressBar"></div>
+        </div>
+        <div id="bbSecondRow">
+            <div id="timer" class="timeLeft">0:00</div>
+            <div id="playbutton" class="playpausebutton">
+                <img id="playpauseicon" class="imageButton" src="play.svg">               
+            </div>
+            <div class="timeRight">0:16</div>
+        </div>
+        <div id="bbSpacerForInputBox"></div>
+        <div id="guessInputBox">
+            <div id="guessArea">
+              <!--<div class="autocompleteResult">I am an example result</div>-->
+            </div>
+            <div id="guessInputBottomRow">
+              <img id="searchIcon" src="search.svg">
+              <input type="text" id="searchBox" placeholder="Search" disabled>
+            </div>
+        </div>
+        <div id="bbThirdRow">
+            <div id="skipbutton" class="bottomButton">
+              <p>SKIP</p>
+            </div>
+            <div id="enterbutton" class="bottomButton">
+              <p>ENTER</p>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/spotify-web-api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script src="scripts/main.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  </body>
+</html>
