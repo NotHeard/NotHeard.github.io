@@ -215,7 +215,7 @@ function showPostLoginUI(){
     document.getElementById('playlistURLRow').style.opacity = '1';
     document.getElementById('playlistURLRow').style.cursor = 'default';
     //TODO check if that causes problems later /\
-    playlistInputBox.placeholder = 'paste url here';
+    playlistInputBox.placeholder = 'paste Spotify playlist url here';
     playlistInputBox.disabled = false;
     playlistInputBox.style.cursor = 'text';
     document.getElementById('loginButton').innerText = 'Logged in :)';
