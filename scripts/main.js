@@ -66,9 +66,9 @@ if (useDevEnvi){
     redirectUri = 'https://NotHeard.github.io';
 }
 //If using the embed player, we don't need anything from the user's account, just enough auth to view public playlists
-let scopes = []; 
+let scopes = [];
 //If we're using the WebPlaybackSDK, then this makes more sense
-if (usePrivateScope == true){ 
+if (usePrivateScope == true){
     //The demo api key uses this streaming, user-read-email, user-modify-playback-state, user-read-private
     scopes = [
         'user-read-playback-state',
@@ -143,7 +143,7 @@ if (!_token) {
                 console.error(message);
             });
 
-            //player.addListener('player_state_changed', ({ position, paused }) => {    
+            //player.addListener('player_state_changed', ({ position, paused }) => {
             //});
 
             document.getElementById('playbutton').onclick = function() {
@@ -281,7 +281,7 @@ function addFailedGuess(failedGuessString, guessResult){
                 }
             }else{
                 symbol = "✕";
-            }   
+            }
             failedGuessString = "<span class=\""+guessResult+"Guess span\">"+symbol+"</span>&nbsp;&nbsp;"+failedGuessString;
             guessHistoryDiv.innerHTML = failedGuessString;
         }
@@ -393,7 +393,7 @@ searchBox.addEventListener('input', function(){
     //if (searchString.length <= 2){return;}
 
     //searchString = searchString.replace(/ /g," \'");
-    //searchString = "\'"+searchString; 
+    //searchString = "\'"+searchString;
     if (searchString.includes(" ")){
         searchString = "\""+searchString+"\"";
     }
@@ -403,8 +403,8 @@ searchBox.addEventListener('input', function(){
     searchResults.forEach(function(result){
         const html = result.item.track.name + " - " + result.item.track.artists[0].name;
         const newResult = Object.assign(
-            document.createElement(`div`), 
-            { className: `autocompleteResult`, 
+            document.createElement(`div`),
+            { className: `autocompleteResult`,
               innerHTML: html});
         guessArea.appendChild(newResult)
         newResult.onclick = function(event){
@@ -475,7 +475,7 @@ function moveToThisBrowser(callback, callbackp1, callbackp2) {
                     if (!value) {
                         spotifyApi.transferMyPlayback(deviceIdArr, {})
                         .then(function(){
-                            waitForSpotifyToCompleteDeviceTransfer(callback, callbackp1, callbackp2); 
+                            waitForSpotifyToCompleteDeviceTransfer(callback, callbackp1, callbackp2);
                             return;
                         });
                     } else {
@@ -483,7 +483,7 @@ function moveToThisBrowser(callback, callbackp1, callbackp2) {
                             spotifyApi.pause().then(function() {
                                 spotifyApi.transferMyPlayback(deviceIdArr, {})
                                 .then(function(){
-                                    waitForSpotifyToCompleteDeviceTransfer(callback, callbackp1, callbackp2); 
+                                    waitForSpotifyToCompleteDeviceTransfer(callback, callbackp1, callbackp2);
                                     return;
                                 });
                             })
@@ -538,7 +538,7 @@ function acquirePlaylist(playlistID, outarr, func, offset, player=null){
             offset = offset + data.limit;
             total = data.total;
             outarr = outarr.concat(data.items);
-            
+
             const percentageString = (Math.floor((offset/total)*100)).toString() + '%';
             //embeddedPlayer.innerHTML = embeddedPlayer.innerHTML.replace(/[0-9]{1,2}%/,percentageString);
             embeddedPlayer.innerText = 'FETCHING PLAYLIST ' + percentageString;
@@ -570,19 +570,19 @@ function chooseAndSetSongAfter(trackArray, player){
     }else{
         moveToThisBrowser(chooseAndSetSongAfterAfter, trackArray, player);
     }
-    
+
 }
 
 function chooseAndSetSongAfterAfter(trackArray, player){
 
     randomIndex = getRandomInt(0,trackArray.length);
-    
+
     songLibrary = trackArray;
     correctAnswer = trackArray[randomIndex].track;
 
     /*
     console.log(
-        'Chosen song :', correctAnswer.name, 
+        'Chosen song :', correctAnswer.name,
         ' by ', correctAnswer.artists[0].name,
         ' with id :', correctAnswer.id);
     */
@@ -598,7 +598,7 @@ function chooseAndSetSongAfterAfter(trackArray, player){
         embed_changeSong(songURL, showBaseUI);
     } else{
         //Need to clear out the embeddedPlayer div  manually when not using it elsewhere
-        embeddedPlayer.innerText = ''; 
+        embeddedPlayer.innerText = '';
         showBaseUI();
         trackURI = "spotify:track:"+correctAnswer.id;
         playSong(trackURI, player);
@@ -624,7 +624,7 @@ function playSong(URI, player) {
                 console.error(error);
             });
         });
-        
+
     }
 }
 
@@ -642,7 +642,7 @@ function seekToZero(player) {
 
 /**
  * Embed player functions
- * 
+ *
  */
 
 function embed_OnRecieveUpdate(event){
@@ -717,7 +717,7 @@ function embed_pause(){
 
 /**
  * Helper functions
- * 
+ *
  */
 
 /**
@@ -836,11 +836,11 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
 
-//Taken from this stackexchange post 
+//Taken from this stackexchange post
 //https://stackoverflow.com/a/25352300
 function isAlphaNumeric(str) {
     var code, i, len;
-  
+
     for (i = 0, len = str.length; i < len; i++) {
       code = str.charCodeAt(i);
       if (!(code > 47 && code < 58) && // numeric (0-9)
