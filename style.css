@@ -108,7 +108,8 @@ body{
 #solution{
     position: fixed;
     top: 200px;
-    width: 50%;
+    width: 300px;
+    max-width: 100%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
