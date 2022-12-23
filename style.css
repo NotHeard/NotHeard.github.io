@@ -1,5 +1,5 @@
-/** 
-background grey = 
+/**
+background grey =
 higher grey = #2d2d2d
 
 light gray = #9f9f9f
@@ -68,6 +68,10 @@ body{
     padding: 10px;
     background-color: var(--greenAccentColor);
     border: var(--border);
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .row{
@@ -297,10 +301,10 @@ body{
     border: var(--border);
     font-size: 1.5rem;
     position: absolute;
-    left: 0; 
+    left: 0;
     right: 0;
     bottom: 46px;
-    /* 46  
+    /* 46
         (height of bbThirdRow)
     */
     min-height: 54px;
