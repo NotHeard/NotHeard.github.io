@@ -391,7 +391,7 @@ searchBox.addEventListener('input', function(){
     searchString = searchBox.value;
     if (searchString.includes(";")){return;}
     if (searchString.includes("\\")){return;}
-    //if (searchString.length <= 2){return;}
+    if (searchString.length <= 1){return;}
 
     //searchString = searchString.replace(/ /g," \'");
     //searchString = "\'"+searchString;
