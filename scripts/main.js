@@ -6,6 +6,7 @@ const usePrivateScope = !useEmbeddedPlayer;
 const hideEmbed = false; //Obvs need to be true for release
 const preventEmbedPlayerLoad = false; //Use this for UI testing to prevent 503 errors later
 const grayScaleMode = false; //Uses symbols as well as colors for guess markers, aimed at people with Monochromacy
+const useDevEnvi = false; //Use local redirect for testing
 
 let state = "paused";
 let uiDisabled = true;
@@ -57,7 +58,13 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '57b0f934888642a1be294898d2ba21e7';
-const redirectUri = 'https://NotHeard.github.io';
+
+let redirectUri;
+if (useDevEnvi){
+    redirectUri = 'http://127.0.0.1:5555';
+}else {
+    redirectUri = 'https://NotHeard.github.io';
+}
 //If using the embed player, we don't need anything from the user's account, just enough auth to view public playlists
 let scopes = []; 
 //If we're using the WebPlaybackSDK, then this makes more sense
