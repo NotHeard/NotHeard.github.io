@@ -136,21 +136,6 @@ body{
     text-align: center;
 }
 
-.startInactive{
-    opacity: 0;
-}
-
-.showAfterLogin{
-    opacity: 0;
-}
-
-.hideAfterPlaylistSelect{
-    opacity: 1;
-}
-
-.showWhenCorrect{
-    opacity: 0;
-}
 
 .topBar{
     width: 100%;
@@ -409,4 +394,20 @@ body{
     justify-content: center;
     align-content: center;
     flex-direction: column;
-}}
+}
+
+.startInactive{
+    display: none;
+}
+
+.showAfterLogin{
+    display: none;
+}
+
+.hideAfterPlaylistSelect{
+    display: initial;
+}
+
+.showWhenCorrect{
+    display: none;
+}

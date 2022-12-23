@@ -727,8 +727,8 @@ function embed_pause(){
 function showAllElementsOfClass(className){
     const elementsToShow = document.querySelectorAll(className);
     elementsToShow.forEach(element => {
-        element.style.opacity = '1';
-    }); 
+        element.style.display = 'initial';
+    });
 }
 
 /**
@@ -738,8 +738,8 @@ function showAllElementsOfClass(className){
 function hideAllElementsOfClass(className){
     const elementsToShow = document.querySelectorAll(className);
     elementsToShow.forEach(element => {
-        element.style.opacity = '0';
-    }); 
+        element.style.display = 'none';
+    });
 }
 
 /**
