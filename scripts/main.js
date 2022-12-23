@@ -317,7 +317,7 @@ document.getElementById("enterbutton").onclick = function(){
     guessArea.innerHTML = '';
     searchBox.value = '';
     answerString = correctAnswer.name + " - " + correctAnswer.artists[0].name;
-    if (searchBoxString===answerString){
+    if ((searchBoxString.toLowerCase()===answerString.toLowerCase()) || (searchBoxString===answerString)){
         answerCorrect();
     }else{
         artistGuess = searchBoxString.split(" - ")[1];
