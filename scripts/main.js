@@ -236,6 +236,7 @@ function showBaseUI(){
         embeddedPlayer.style.left = '-101%';
     }
     showAllElementsOfClass('.startInactive');
+    showAllElementsOfClass('.startInactiveFlex', 'flex');
     searchBox.disabled = false;
 }
 
@@ -724,10 +725,10 @@ function embed_pause(){
  * unhides (sets opacity to 1) every DOM element of a given class
  * @param {String} className className that should be unhidden
  */
-function showAllElementsOfClass(className){
+function showAllElementsOfClass(className, displayType='initial'){
     const elementsToShow = document.querySelectorAll(className);
     elementsToShow.forEach(element => {
-        element.style.display = 'initial';
+        element.style.display = displayType;
     });
 }
 

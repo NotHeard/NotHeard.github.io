@@ -107,7 +107,7 @@ body{
 
 #solution{
     position: fixed;
-    top: 200px;
+    top: 250px;
     width: 330px;
     max-width: 100%;
     left: 50%;
@@ -397,6 +397,10 @@ body{
 }
 
 .startInactive{
+    display: none;
+}
+
+.startInactiveFlex{
     display: none;
 }
 
